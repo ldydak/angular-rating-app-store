@@ -1,0 +1,52 @@
+<div class="questions-page">
+  <header>
+    <h1>Jak oceniasz nasze produkty i stoisko Ryneczku Lidla?</h1>
+    <p class="header">Dotknij wybrany kafelek i oceń</p>
+    <img class="logo" src="./assets/img/logo.png" alt="">
+  </header>
+  <div class="questions-wrapper">
+    <div class="answers-wrapper">
+      <div class="answer" *ngFor="let question of questions; let i = index" (click)="selectQuestion(i)">
+        <p>{{ question.title }}</p>
+        <div class="line">
+          <img src="./assets/img/line.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Vote -->
+<div class="modal-vote" *ngIf="showVote">
+  <div class="close-btn" (click)="closeQuestion()"></div>
+  <div *ngFor="let question of questions; let i = index" class="question-wrapper"
+    [class.active]="currentQuestion === i">
+    <h2 *ngIf="currentQuestion === i">{{ question.question }}</h2>
+  </div>
+  <p class="vote-text">Oceń przyznając odpowiednią ilość gwiazdek</p>
+  <div class="rating-wrapper">
+    <div class="rating-stars">
+      <input type="radio" id="{{rank}}" value="{{rank}}" (click)="sendRank($event)" *ngFor="let rank of ranks" />
+      <label *ngFor="let rank of ranks" for="{{rank}}"></label>
+    </div>
+    <!-- {{selectedRank}} -->
+    <div class="rating-titles">
+      <p>Tragicznie</p>
+      <p>Bardzo dobrze</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal success with counter after vote added -->
+<div class="modal-success" *ngIf="showSuccess">
+  <div class="counter-wrapper">
+    <div class="left"></div>
+    <div class="right"></div>
+    <div class="mask"></div>
+    <div class="counter">{{ counter }}</div>
+  </div>
+  <h2 class="text-center">Sukces!</h2>
+  <p class="text-center">Dziękujemy za Twoją opinię.<br>Pozwoli nam ona na doskonalenie ryneczku Lidla, aby odpowiadał
+    każdej Twojej potrzebie.</p>
+</div>

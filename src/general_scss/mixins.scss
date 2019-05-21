@@ -1,0 +1,24 @@
+%icon {
+  font: {
+    family: $font-awesome;
+    weight: normal;
+    style: normal;
+  }
+
+  display: inline-block;
+  text-decoration: inherit;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
+}
+
+@mixin icon($icon) {
+  &::before {
+    @extend %icon;
+    content: $icon;
+  }
+}

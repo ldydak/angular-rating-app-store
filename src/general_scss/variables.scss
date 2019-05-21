@@ -1,0 +1,22 @@
+// Fonts
+
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i&subset=latin-ext');
+$font: 'PT Serif';
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+$font-awesome: 'FontAwesome';
+
+$regular: 400;
+$bold: 700;
+
+// Colors
+$white: #fff;
+$black: #2D2D2D;
+$gray: #d8d8d8;
+$orange: #ff9920;
+$success: #7ed321;
+
+// Icons
+$icon: ('star': "\f005",
+'star-o': "\f006"
+);
